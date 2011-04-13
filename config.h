@@ -47,7 +47,7 @@
  *	This symbol, if defined, indicates that the crypt routine is available
  *	to encrypt passwords and the like.
  */
-//#undef	CRYPT		/**/
+#define	CRYPT		/**/
 
 /* DOSUID:
  *	This symbol, if defined, indicates that the C program should

@@ -19,7 +19,7 @@ CFLAGS =  -O
 LDFLAGS =
 SLN = ln
 
-libs =  -lm
+libs =  -lm -lcrypt
 
 public = perl perldb
 
