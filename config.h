@@ -27,7 +27,7 @@
  *	This symbol, if defined, indicates that the bcopy routine is available
  *	to copy blocks of memory.  Otherwise you should probably use memcpy().
  */
-#undef	BCOPY		/**/
+//#undef	BCOPY		/**/
 
 /* CRYPT:
  *	This symbol, if defined, indicates that the crypt routine is available
@@ -54,20 +54,20 @@
  *	This symbol, if defined, indicates that the fchmod routine is available
  *	to change mode of opened files.  If unavailable, use chmod().
  */
-//#undef	FCHMOD		/**/
+#define	FCHMOD		/**/
 
 /* FCHOWN:
  *	This symbol, if defined, indicates that the fchown routine is available
  *	to change ownership of opened files.  If unavailable, use chown().
  */
-//#undef	FCHOWN		/**/
+#define	FCHOWN		/**/
 
 /* GETGROUPS:
  *	This symbol, if defined, indicates that the getgroups() routine is
  *	available to get the list of process groups.  If unavailable, multiple
  *	groups are probably not supported.
  */
-//#undef	GETGROUPS		/**/
+#define	GETGROUPS		/**/
 
 /* KILLPG:
  *	This symbol, if defined, indicates that the killpg routine is available
@@ -118,7 +118,7 @@
  *	This symbol is defined if this system has a stat structure declaring
  *	st_blksize and st_blocks.
  */
-//#undef	STATBLOCKS 	/**/
+#define	STATBLOCKS 	/**/
 
 /* STDSTDIO:
  *	This symbol is defined if this system has a FILE structure declaring
@@ -143,7 +143,7 @@
  *	This symbol, if defined, indicates that the symlink routine is available
  *	to create symbolic links.
  */
-//#undef	SYMLINK		/**/
+#define	SYMLINK		/**/
 
 /* TMINSYS:
  *	This symbol is defined if this system declares "struct tm" in
@@ -213,5 +213,6 @@
  *	The library is private in the sense that it needn't be in anyone's
  *	execution path, but it should be accessible by the world.
  */
+/* TODO FIXME HARDCODED LINKS KILL KITTENS */
 #define PRIVLIB "/usr/local/lib/perl"		/**/
 
