@@ -1,3 +1,4 @@
 *.o
 perly.h
 perl.c
+perl
