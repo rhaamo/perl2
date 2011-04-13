@@ -23,25 +23,11 @@
 //#undef	EUNICE		/**/
 //#undef	VMS		/**/
 
-/* CPPSTDIN:
- *	This symbol contains the first part of the string which will invoke
- *	the C preprocessor on the standard input and produce to standard
- *	output.	 Typical value of "cc -E" or "/lib/cpp".
- */
-/* CPPMINUS:
- *	This symbol contains the second part of the string which will invoke
- *	the C preprocessor on the standard input and produce to standard
- *	output.  This symbol will have the value "-" if CPPSTDIN needs a minus
- *	to specify standard input, otherwise the value is "".
- */
-#define CPPSTDIN "/usr/bin/cpp"
-#define CPPMINUS ""
-
 /* BCOPY:
  *	This symbol, if defined, indicates that the bcopy routine is available
  *	to copy blocks of memory.  Otherwise you should probably use memcpy().
  */
-#define	BCOPY		/**/
+#undef	BCOPY		/**/
 
 /* CRYPT:
  *	This symbol, if defined, indicates that the crypt routine is available

@@ -9,6 +9,16 @@ char rcsid[] = "$Header: perly.c,v 2.0.1.1 88/06/28 16:36:49 root Exp $";
  * 
  */
 
+#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+#	define	SEDBIN		"/usr/bin/sed"
+#	define	CPP		"/usr/bin/cpp"
+#	define	CPPMINUS	""
+#else
+#	define	SEDBIN		"/bin/sed"
+#	define	CPPSTDIN	"/lib/cpp"
+#	define	CPPMINUS	""
+#endif
+
 #include "EXTERN.h"
 #include "perl.h"
 #include "perly.h"
@@ -190,7 +200,7 @@ register char **env;
 	str_cat(str,"-I");
 	str_cat(str,PRIVLIB);
 	sprintf(buf, "\
-/bin/sed -e '/^[^#]/b' \
+%s -e '/^[^#]/b' \
  -e '/^#[ 	]*include[ 	]/b' \
  -e '/^#[ 	]*define[ 	]/b' \
  -e '/^#[ 	]*if[ 	]/b' \
@@ -200,7 +210,7 @@ register char **env;
  -e '/^#[ 	]*endif/b' \
  -e 's/^#.*//' \
  %s | %s -C %s %s",
-	  argv[0], CPPSTDIN, str_get(str), CPPMINUS);
+	  SEDBIN, argv[0], CPPSTDIN, str_get(str), CPPMINUS);
 #ifdef IAMSUID
 	if (euid != uid && !euid)	/* if running suidperl */
 	    seteuid(uid);		/* musn't stay setuid root */
