@@ -29,7 +29,6 @@ void	prexit();
 char	*get_a_line();
 char	*savestr();
 int	makedir();
-void	setenv();
 int	envix();
 void	notincl();
 char	*getval();

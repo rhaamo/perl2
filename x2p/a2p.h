@@ -6,6 +6,10 @@
  * 
  */
 
+/* Avoid implicit declaration */
+#include <string.h>
+#include <stdlib.h>
+
 #define VOIDUSED 1
 #include "../config.h"
 

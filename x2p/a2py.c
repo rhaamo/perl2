@@ -21,7 +21,6 @@ register char **env;
     register STR *str;
     register char *s;
     int i;
-    STR *walk();
     STR *tmpstr;
 
     linestr = str_new(80);
