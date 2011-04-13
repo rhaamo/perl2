@@ -2,6 +2,16 @@ This is an attempt to make the original Perl Kit, Version 2.0 to build correctly
 on recent Linux or *BSD.
 
 This is only for fun.
+This is done by rhaamo <rhaamo@gruik.at>
+
+At this moment it will compile and "run", but some tests will fails.
+
+And you need a bison/yacc wish is NOT a GNU bison or you will probably get:
+    perl.y:73.1-5: syntax error, unexpected %type, expecting string or char or identifier
+A yacc 1.9 from Berkeley is perfect.
+
+Just run 'make' to build and 'make test' to run the Perl testsuite.
+It should build without problem, same for a2p and s2p in x2p/ directory.
 
 Below is the original README:
 
