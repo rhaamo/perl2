@@ -33,11 +33,11 @@ h1 = EXTERN.h INTERN.h arg.h array.h cmd.h config.h form.h handy.h
 h2 = hash.h perl.h regexp.h spat.h stab.h str.h util.h
 h = $(h1) $(h2)
 
-c1 = arg.c array.c cmd.c dump.c eval.c form.c hash.c $(mallocsrc)
+c1 = arg.c array.c cmd.c dump.c eval.c form.c hash.c
 c2 = perly.c regexp.c stab.c str.c toke.c util.c version.c
 c = $(c1) $(c2)
 
-obj1 = arg.o array.o cmd.o dump.o eval.o form.o hash.o $(mallocobj)
+obj1 = arg.o array.o cmd.o dump.o eval.o form.o hash.o
 obj2 = regexp.o stab.o str.o toke.o util.o version.o
 obj = $(obj1) $(obj2)
 
@@ -49,14 +49,14 @@ addedbyconf = Makefile.old bsd eunice filexp loc pdp11 usg v7
 	$(CC) -c $(CFLAGS) $*.c
 
 all: $(public) $(private) $(util)
-	touch all
+	echo "done"
 
 perl: perly.o $(obj) perl.o
 	$(CC) $(LDFLAGS) perly.o $(obj) perl.o $(libs) -o perl
 
 
 perl.c perly.h: perl.y
-	@echo Expect 37 shift/reduce errors...
+	@echo "Expect 37 shift/reduce errors..."
 	yacc -d perl.y
 	mv y.tab.c perl.c
 	mv y.tab.h perly.h
@@ -76,6 +76,9 @@ clean:
 
 realclean:
 	rm -f perl *.orig */*.orig *~ */*~ *.o core $(addedbyconf)
+
+bisonclean:
+	rm -f perl.c perly.h
 
 # The following lint has practically everything turned on.  Unfortunately,
 # you have to wade through a lot of mumbo jumbo that can't be suppressed.

@@ -43,14 +43,6 @@
  */
 #define	BCOPY		/**/
 
-/* CHARSPRINTF:
- *	This symbol is defined if this system declares "char *sprintf()" in
- *	stdio.h.  The trend seems to be to declare it as "int sprintf()".  It
- *	is up to the package author to declare sprintf correctly based on the
- *	symbol.
- */
-//#undef	CHARSPRINTF 	/**/
-
 /* CRYPT:
  *	This symbol, if defined, indicates that the crypt routine is available
  *	to encrypt passwords and the like.
@@ -90,17 +82,6 @@
  *	groups are probably not supported.
  */
 //#undef	GETGROUPS		/**/
-
-/* index:
- *	This preprocessor symbol is defined, along with rindex, if the system
- *	uses the strchr and strrchr routines instead.
- */
-/* rindex:
- *	This preprocessor symbol is defined, along with index, if the system
- *	uses the strchr and strrchr routines instead.
- */
-#define	index strchr	/* cultural */
-#define	rindex strrchr	/*  differences? */
 
 /* KILLPG:
  *	This symbol, if defined, indicates that the killpg routine is available

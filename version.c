@@ -7,6 +7,7 @@
  */
 
 #include "patchlevel.h"
+#include <stdio.h>
 
 /* Print out the version number. */
 

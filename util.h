@@ -21,6 +21,5 @@ void	bmcompile();
 void	fbmcompile();
 char	*get_a_line();
 char	*savestr();
-void	setenv();
 int	envix();
 void	growstr();

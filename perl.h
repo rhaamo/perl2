@@ -6,18 +6,20 @@
  * 
  */
 
+/* Avoid implicit definition warns */
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <errno.h>
+
+
 #ifndef lint
 #define DEBUGGING
 #endif
 
 #define VOIDUSED 1
 #include "config.h"
-
-#ifdef MEMCPY
-extern char *memcpy(), *memset();
-#define bcopy(s1,s2,l) memcpy(s2,s1,l);
-#define bzero(s,l) memset(s,0,l);
-#endif
 
 #include <stdio.h>
 #include <ctype.h>
@@ -63,12 +65,6 @@ typedef struct regexp REGEXP;
 #include "cmd.h"
 #include "array.h"
 #include "hash.h"
-
-#ifdef CHARSPRINTF
-    char *sprintf();
-#else
-    int sprintf();
-#endif
 
 /* A string is TRUE if not "" or "0". */
 #define True(val) (tmps = (val), (*tmps && !(*tmps == '0' && !tmps[1])))

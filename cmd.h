@@ -123,7 +123,7 @@ EXT CMD *eval_root INIT(Nullcmd);
 EXT struct compcmd {
     CMD *comp_true;
     CMD *comp_alt;
-};
+} _foobar; /* got useless storage useless bla if '_foobar' is not here ('foo' already used as a var)*/
 
 void opt_arg();
 void evalstatic();

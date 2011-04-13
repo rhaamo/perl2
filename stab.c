@@ -61,7 +61,6 @@ static char *sig_name[] = {
 
 extern int errno;
 extern int sys_nerr;
-extern char *sys_errlist[];
 
 STR *
 stab_str(stab)
@@ -297,7 +296,7 @@ STR *str;
 	}
     }
     else if (stab == envstab && envname) {
-	setenv(envname,str_get(str));
+	setenv(envname,str_get(str), 1); /* rhaamo: It needs overwrite, no ? */
 				/* And you'll never guess what the dog had */
 	safefree(envname);	/*   in its mouth... */
 	envname = Nullch;

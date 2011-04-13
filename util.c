@@ -24,7 +24,7 @@ safemalloc(size)
 MEM_SIZE size;
 {
     char *ptr;
-    char *malloc();
+    void *malloc();
 
     ptr = malloc(size?size:1);	/* malloc(0) is NASTY on our system */
 #ifdef DEBUGGING
@@ -48,7 +48,7 @@ char *where;
 MEM_SIZE size;
 {
     char *ptr;
-    char *realloc();
+    void *realloc();
 
     if (!where)
 	fatal("Null realloc");
@@ -490,6 +490,8 @@ char *pat;
 static bool firstsetenv = TRUE;
 extern char **environ;
 
+/* rhaamo: I think we cal rely on the OS's setenv function */
+#if 0
 void
 setenv(nam,val)
 char *nam, *val;
@@ -524,6 +526,7 @@ char *nam, *val;
 					/* the old environ structure */
     sprintf(environ[i],"%s=%s",nam,val);/* all that work just for this */
 }
+#endif
 
 int
 envix(nam)
